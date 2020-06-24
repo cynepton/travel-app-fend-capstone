@@ -1,0 +1,24 @@
+{
+  "name": "travel-app-fend-capstone",
+  "version": "1.0.0",
+  "description": "This project is a travel app that, obtains a desired trip location & date from the user, and displays weather information and an image of the location using information obtained from external APIs. This is the final project for my Udacity Front-end Developer Nanodegree",
+  "main": "src/client/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cynepton/travel-app-fend-capstone.git"
+  },
+  "keywords": [
+    "udacity",
+    "travel-app",
+    "frontend"
+  ],
+  "author": "Isaac Adedoyin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cynepton/travel-app-fend-capstone/issues"
+  },
+  "homepage": "https://github.com/cynepton/travel-app-fend-capstone#readme"
+}
