@@ -6,7 +6,7 @@ body {
 .top-container {
   display: grid;
   grid-template-areas: "head" "neck" "main" "foot";
-  grid-template-rows: 10vh 15vh 1fr 20vh;
+  grid-template-rows: 8vh 15vh 1fr 20vh;
   gap: 1vh;
 }
 
@@ -29,6 +29,13 @@ main {
 footer {
   grid-area: foot;
   background-color: #a3a3bb;
+}
+
+@media (min-width: 901px) {
+  .top-container {
+    grid-template-areas: "neck" "head" "main" "foot";
+    grid-template-rows: 8vh 12vh 1fr 20vh;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

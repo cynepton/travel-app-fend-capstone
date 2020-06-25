@@ -12,7 +12,7 @@ body {
     "neck"
     "main"
     "foot";
-    grid-template-rows: 10vh 15vh 1fr 20vh;
+    grid-template-rows: 8vh 15vh 1fr 20vh;
     gap: 1vh;
 }
 
@@ -35,4 +35,19 @@ main {
 footer {
     grid-area: foot;
     background-color: variables.$wireframe-color;
+}
+
+@media (min-width:600px) and (max-width:900px) {
+
+}
+
+@media (min-width:901px) {
+    .top-container {
+        grid-template-areas: 
+        "neck"
+        "head"
+        "main"
+        "foot";
+        grid-template-rows: 8vh 12vh 1fr 20vh;
+    }
 }
