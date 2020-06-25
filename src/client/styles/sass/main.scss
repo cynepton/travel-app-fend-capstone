@@ -1,7 +1,11 @@
-$main-font-stack:    Helvetica, sans-serif;
-$primary-font-color: white;
+@use 'partials/variables';
 
 body {
-  font: 100% $main-font-stack;
-  color: $primary-font-color;
+  font: 10px variables.$generic-font;
+  color: variables.$primary-font-color;
+}
+
+.top-container {
+    display: grid;
+    font: 10px variables.$generic-font;
 }
