@@ -5,7 +5,7 @@
   "main": "src/client/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "scss": "node-sass --watch src/client/styles/sass -o src/client/styles/css"
+    "sass": "sass --watch src/client/styles/sass:src/client/styles/css"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/cynepton/travel-app-fend-capstone#readme",
   "dependencies": {
-    "node-sass": "^4.14.1"
+    "node-sass": "^4.14.1",
+    "sass": "^1.26.9"
   }
 }
