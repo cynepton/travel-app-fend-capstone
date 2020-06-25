@@ -1,11 +1,34 @@
 body {
-  font: 10px "Open Sans", sans-serif;
+  font: 100% "Open Sans", sans-serif;
   color: black;
 }
 
 .top-container {
   display: grid;
-  font: 10px "Open Sans", sans-serif;
+  grid-template-areas: "head" "neck" "main" "foot";
+  grid-template-rows: 10vh 15vh 1fr 20vh;
+  gap: 1vh;
+}
+
+header {
+  grid-area: head;
+  background-color: #a3a3bb;
+}
+
+aside {
+  grid-area: neck;
+  background-color: #a3a3bb;
+}
+
+main {
+  grid-area: main;
+  background-color: #a3a3bb;
+  min-height: 10vh;
+}
+
+footer {
+  grid-area: foot;
+  background-color: #a3a3bb;
 }
 
 /*# sourceMappingURL=main.css.map */
