@@ -5,6 +5,7 @@
   "main": "src/client/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server/server.js",
     "sass": "sass --watch src/client/styles/sass:src/client/styles/css"
   },
   "repository": {
@@ -23,6 +24,9 @@
   },
   "homepage": "https://github.com/cynepton/travel-app-fend-capstone#readme",
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "node-sass": "^4.14.1",
     "sass": "^1.26.9"
   }
