@@ -1,11 +1,38 @@
 @use 'partials/variables';
 
 body {
-  font: 10px variables.$generic-font;
+  font: 100% variables.$generic-font;
   color: variables.$primary-font-color;
 }
 
 .top-container {
     display: grid;
-    font: 10px variables.$generic-font;
+    grid-template-areas: 
+    "head"
+    "neck"
+    "main"
+    "foot";
+    grid-template-rows: 10vh 15vh 1fr 20vh;
+    gap: 1vh;
+}
+
+header {
+    grid-area: head;
+    background-color: variables.$wireframe-color;
+}
+
+aside {
+    grid-area: neck;
+    background-color: variables.$wireframe-color;
+}
+
+main {
+    grid-area: main;
+    background-color: variables.$wireframe-color;
+    min-height: 10vh;
+}
+
+footer {
+    grid-area: foot;
+    background-color: variables.$wireframe-color;
 }
