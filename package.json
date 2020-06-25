@@ -4,9 +4,11 @@
   "description": "This project is a travel app that, obtains a desired trip location & date from the user, and displays weather information and an image of the location using information obtained from external APIs. This is the final project for my Udacity Front-end Developer Nanodegree",
   "main": "src/client/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "start": "node src/server/server.js",
-    "sass": "sass --watch src/client/styles/sass:src/client/styles/css"
+    "sass": "sass --watch src/client/styles/sass:src/client/styles/css",
+    "build-prod": "webpack --config webpack.prod.js",
+    "build-dev": "webpack-dev-server  --config webpack.dev.js --open"
   },
   "repository": {
     "type": "git",
