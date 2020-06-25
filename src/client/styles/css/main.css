@@ -3,7 +3,21 @@ body {
   color: black;
 }
 
-.top-container {
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 7vh;
+}
+
+.trip-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #a3a3bb;
+  border: 2px solid white;
+  width: 92vw;
+  border-radius: 1vw;
+}
+
+.main-container {
   display: grid;
   grid-template-areas: "head" "neck" "main" "foot";
   grid-template-rows: 8vh 15vh 1fr 20vh;
@@ -12,7 +26,12 @@ body {
 
 header {
   grid-area: head;
-  background-color: #a3a3bb;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #0c1624;
+  text-align: center;
+  color: white;
 }
 
 aside {
@@ -22,8 +41,11 @@ aside {
 
 main {
   grid-area: main;
+  display: flex;
+  flex-direction: column;
   background-color: #a3a3bb;
   min-height: 10vh;
+  align-items: center;
 }
 
 footer {
@@ -31,10 +53,9 @@ footer {
   background-color: #a3a3bb;
 }
 
-@media (min-width: 901px) {
-  .top-container {
-    grid-template-areas: "neck" "head" "main" "foot";
-    grid-template-rows: 8vh 12vh 1fr 20vh;
+@media (min-width: 600px) {
+  .trip-card {
+    flex-direction: row;
   }
 }
 

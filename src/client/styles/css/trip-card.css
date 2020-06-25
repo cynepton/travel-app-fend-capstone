@@ -1,0 +1,23 @@
+.trip-image {
+  width: 1fr;
+  height: 10vh;
+  border: 2px solid white;
+}
+
+.trip-info {
+  width: 1fr;
+  height: 10vh;
+  border: 2px solid white;
+}
+
+@media (min-width: 600px) {
+  .trip-image {
+    width: 50%;
+  }
+
+  .trip-info {
+    width: 50%;
+  }
+}
+
+/*# sourceMappingURL=trip-card.css.map */

@@ -1,11 +1,24 @@
 @use 'partials/variables';
 
 body {
-  font: 100% variables.$generic-font;
-  color: variables.$primary-font-color;
+    font: 100% variables.$generic-font;
+    color: variables.$primary-font-color;
 }
 
-.top-container {
+h1 {
+    font-family: variables.$special-font;
+    font-size: 7vh;
+}
+.trip-card {
+    display: flex;
+    flex-direction: column;
+    background-color: variables.$wireframe-color;
+    border: variables.$wireframe-border;
+    width: 92vw;
+    border-radius: 1vw;
+}
+
+.main-container {
     display: grid;
     grid-template-areas: 
     "head"
@@ -18,7 +31,14 @@ body {
 
 header {
     grid-area: head;
-    background-color: variables.$wireframe-color;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: variables.$brand-color-1;
+    text-align: center;
+    color: variables.$font-color-1;
+    // position: fixed;
+
 }
 
 aside {
@@ -28,8 +48,12 @@ aside {
 
 main {
     grid-area: main;
+    display: flex;
+    flex-direction: column;
     background-color: variables.$wireframe-color;
     min-height: 10vh;
+    // justify-content: center;
+    align-items: center;
 }
 
 footer {
@@ -37,17 +61,8 @@ footer {
     background-color: variables.$wireframe-color;
 }
 
-@media (min-width:600px) and (max-width:900px) {
-
-}
-
-@media (min-width:901px) {
-    .top-container {
-        grid-template-areas: 
-        "neck"
-        "head"
-        "main"
-        "foot";
-        grid-template-rows: 8vh 12vh 1fr 20vh;
+@media (min-width:600px) {
+    .trip-card {
+        flex-direction: row;
     }
 }

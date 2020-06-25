@@ -1,0 +1,29 @@
+@use 'partials/variables';
+
+// .trip-title {
+//     width: 1fr;
+//     min-height: 5vh;
+//     border: variables.$wireframe-border;
+//     text-align: center;
+// }
+
+.trip-image {
+    width: 1fr;
+    height: 10vh;
+    border: variables.$wireframe-border;
+}
+
+.trip-info {
+    width: 1fr;
+    height: 10vh;
+    border: variables.$wireframe-border;
+}
+
+@media (min-width:600px) {
+    .trip-image {
+        width: 50%;
+    }
+    .trip-info {
+        width: 50%;
+    }
+}
