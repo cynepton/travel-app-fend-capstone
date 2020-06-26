@@ -6,7 +6,6 @@
 .trip-info {
   width: 1fr;
   padding: 2vh;
-  border-radius: 0 0 2vw 2vw;
   border-top: 4px solid orange;
 }
 
@@ -23,6 +22,8 @@
 
   .trip-info {
     width: 50%;
+    border-top: none;
+    border-left: 4px solid orange;
   }
 }
 

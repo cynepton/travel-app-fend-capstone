@@ -23,7 +23,7 @@ $trip-card-border: 4px solid $brand-color-2;
 .trip-info {
     width: 1fr;
     padding: 2vh;
-    border-radius: 0 0 2vw 2vw;
+    // border-radius: 0 0 2vw 2vw;
     border-top: $trip-card-border;
 }
 .trip-actions {
@@ -38,5 +38,7 @@ $trip-card-border: 4px solid $brand-color-2;
     }
     .trip-info {
         width: 50%;
+        border-top: none;
+        border-left: $trip-card-border;
     }
 }
