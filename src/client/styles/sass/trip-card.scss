@@ -1,22 +1,28 @@
-@use 'partials/variables';
+$special-font: 'Roboto', sans-serif;
+$generic-font: 'Open Sans', sans-serif;
+$primary-font-color: black;
+$wireframe-color: rgb(163, 163, 187);
+$wireframe-border: 2px solid white;
+$font-color-1: white;
+$brand-color-1: rgb(12, 22, 36);
 
 // .trip-title {
 //     width: 1fr;
 //     min-height: 5vh;
-//     border: variables.$wireframe-border;
+//     border: $wireframe-border;
 //     text-align: center;
 // }
 
 .trip-image {
     width: 1fr;
     height: 10vh;
-    border: variables.$wireframe-border;
+    border: $wireframe-border;
 }
 
 .trip-info {
     width: 1fr;
     height: 10vh;
-    border: variables.$wireframe-border;
+    border: $wireframe-border;
 }
 
 @media (min-width:600px) {
