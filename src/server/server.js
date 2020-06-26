@@ -44,6 +44,6 @@ function sendData (req, res) {
 app.post('/addgeonames', geoNamesPost);
 function geoNamesPost(req, res) {
     geoNamesDataArray[geoNamesDataArray.length].lat = req.body.lat;
-    geoNamesDataArray[geoNamesDataArray.length].lng = req.body.lng;
+    geoNamesDataArray[geoNamesDataArray.length].lon = req.body.lng;
     geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
 }
