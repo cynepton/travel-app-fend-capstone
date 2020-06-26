@@ -24,7 +24,15 @@
             </header>
 
             <aside>
-                
+                <div class="inputs">
+                    <label for="destination-city">Add New Destination: </label>
+                    <input type="text" name="destination-city" id="destination-city" size="20" maxlength="20" required>
+                </div>
+                <div class="inputs">
+                    <label for="travel-date">Enter Travel Date: </label>
+                    <input type="date" name="travel-date" id="travel-date" required>
+                </div>
+                <input id="generate-button" class="button-style" type="button" value="Generate">
             </aside>
 
             <main>
@@ -37,6 +45,15 @@
 
                     </div>
                     <div class="trip-info">
+                        <h3 class="user-destination">Destination</h3>
+                        <p class="user-travel-date">Travel Date: 2020-12-08</p>
+                        <p class="user-weather-information">Weather Information:</p>
+                        <p class="user-temperature">High: 30, Low: 24</p>
+                        <p class="user-comment">Thisis small talk</p>
+                        <div class="trip-actions">
+                            <button>Save Trip</button>
+                            <button>Remove Trip</button>
+                        </div>
 
                     </div>
                 </section>
