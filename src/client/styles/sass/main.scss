@@ -1,25 +1,19 @@
-$special-font: 'Roboto', sans-serif;
-$generic-font: 'Open Sans', sans-serif;
-$primary-font-color: black;
-$wireframe-color: rgb(163, 163, 187);
-$wireframe-border: 2px solid white;
-$font-color-1: white;
-$brand-color-1: rgb(12, 22, 36);
+@use './partials/variables';
 
 body {
-    font: 100% $generic-font;
-    color: $primary-font-color;
+    font: 100% variables.$generic-font;
+    color: variables.$primary-font-color;
 }
 
 h1 {
-    font-family: $special-font;
+    font-family: variables.$special-font;
     font-size: 7vh;
 }
 .trip-card {
     display: flex;
     flex-direction: column;
-    background-color: $wireframe-color;
-    border: $wireframe-border;
+    background-color: variables.$wireframe-color;
+    border: variables.$wireframe-border;
     width: 92vw;
     border-radius: 1vw;
 }
@@ -40,23 +34,23 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: $brand-color-1;
+    background-color: variables.$brand-color-1;
     text-align: center;
-    color: $font-color-1;
+    color: variables.$font-color-1;
     // position: fixed;
 
 }
 
 aside {
     grid-area: neck;
-    background-color: $wireframe-color;
+    background-color: variables.$wireframe-color;
 }
 
 main {
     grid-area: main;
     display: flex;
     flex-direction: column;
-    background-color: $wireframe-color;
+    background-color: variables.$wireframe-color;
     min-height: 10vh;
     // justify-content: center;
     align-items: center;
@@ -64,7 +58,7 @@ main {
 
 footer {
     grid-area: foot;
-    background-color: $wireframe-color;
+    background-color: variables.$wireframe-color;
 }
 
 @media (min-width:600px) {
