@@ -48,7 +48,7 @@ function geoNamesAPI() {
         }
     }
 
-    async function updateUi() {
+    async function fetchGeoNamesData() {
         const req = await fetch ('http://localhost:3000//allgeonames');
         try{
             const allGeoNameData = await req.json();
