@@ -1,6 +1,8 @@
-  
+const dotenv = require('dotenv')
+dotenv.config();
+
 // Setup empty JS object to act as endpoint for all routes
-projectData = {};
+geoNamesDataArray = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -29,3 +31,19 @@ function listening(){
     console.log(server);
     console.log(`running on localhost: ${port}`);
 };
+
+// GET Route
+app.get('/allgeonames', sendData);
+
+function sendData (req, res) {
+    res.send(JSON.stringify(geoNamesDataArray));
+    console.log(geoNamesDataArray);
+};
+
+// POST Route
+app.post('/addgeonames', geoNamesPost);
+function geoNamesPost(req, res) {
+    geoNamesDataArray[geoNamesDataArray.length].lat = req.body.lat;
+    geoNamesDataArray[geoNamesDataArray.length].lng = req.body.lng;
+    geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
+}
