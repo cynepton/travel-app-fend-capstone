@@ -1,5 +1,5 @@
 // Imported JavaScript functions
-import {geoNamesAPI} from './js/geonamesAPI'
+import {geoNamesAPI} from './js/geoNamesAPI'
 
 // Imported SASS styles
 import './styles/sass/main.scss';
