@@ -1,16 +1,22 @@
 .trip-image {
   width: 1fr;
-  height: 10vh;
-  border: 2px solid white;
+  min-height: 10vh;
 }
 
 .trip-info {
   width: 1fr;
-  height: 10vh;
-  border: 2px solid white;
+  padding: 2vh;
+  border-radius: 0 0 2vw 2vw;
+  border-top: 4px solid orange;
 }
 
-@media (min-width: 600px) {
+.trip-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (min-width: 901px) {
   .trip-image {
     width: 50%;
   }
