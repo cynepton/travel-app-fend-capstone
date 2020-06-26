@@ -5,6 +5,8 @@ $wireframe-color: rgb(163, 163, 187);
 $wireframe-border: 2px solid white;
 $font-color-1: white;
 $brand-color-1: rgb(12, 22, 36);
+$brand-color-2: orange;
+$trip-card-border: 4px solid $brand-color-2;
 
 // .trip-title {
 //     width: 1fr;
@@ -15,17 +17,22 @@ $brand-color-1: rgb(12, 22, 36);
 
 .trip-image {
     width: 1fr;
-    height: 10vh;
-    border: $wireframe-border;
+    min-height: 10vh;
 }
 
 .trip-info {
     width: 1fr;
-    height: 10vh;
-    border: $wireframe-border;
+    padding: 2vh;
+    border-radius: 0 0 2vw 2vw;
+    border-top: $trip-card-border;
+}
+.trip-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-@media (min-width:600px) {
+@media (min-width:901px) {
     .trip-image {
         width: 50%;
     }
