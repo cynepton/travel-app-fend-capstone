@@ -1,0 +1,44 @@
+$special-font: 'Roboto', sans-serif;
+$generic-font: 'Open Sans', sans-serif;
+$primary-font-color: black;
+$wireframe-color: rgb(163, 163, 187);
+$wireframe-border: 2px solid white;
+$font-color-1: white;
+$brand-color-1: rgb(12, 22, 36);
+$brand-color-2: orange;
+$trip-card-border: 4px solid $brand-color-2;
+
+// .trip-title {
+//     width: 1fr;
+//     min-height: 5vh;
+//     border: $wireframe-border;
+//     text-align: center;
+// }
+
+.trip-image {
+    width: 1fr;
+    min-height: 10vh;
+}
+
+.trip-info {
+    width: 1fr;
+    padding: 2vh;
+    // border-radius: 0 0 2vw 2vw;
+    border-top: $trip-card-border;
+}
+.trip-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+@media (min-width:901px) {
+    .trip-image {
+        width: 50%;
+    }
+    .trip-info {
+        width: 50%;
+        border-top: none;
+        border-left: $trip-card-border;
+    }
+}

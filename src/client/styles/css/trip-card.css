@@ -1,0 +1,30 @@
+.trip-image {
+  width: 1fr;
+  min-height: 10vh;
+}
+
+.trip-info {
+  width: 1fr;
+  padding: 2vh;
+  border-top: 4px solid orange;
+}
+
+.trip-actions {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media (min-width: 901px) {
+  .trip-image {
+    width: 50%;
+  }
+
+  .trip-info {
+    width: 50%;
+    border-top: none;
+    border-left: 4px solid orange;
+  }
+}
+
+/*# sourceMappingURL=trip-card.css.map */

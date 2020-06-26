@@ -1,0 +1,25 @@
+{
+    "totalResultsCount":3182,
+    "geonames":[
+        {
+            "adminCode1":"11",
+            "lng":"31.24967",
+            "geonameId":360630,
+            "toponymName":"Cairo",
+            "countryId":"357994",
+            "fcl":"P",
+            "population":7734614,
+            "countryCode":"EG",
+            "name":"Cairo",
+            "fclName":"city, village,...",
+            "adminCodes1":{
+                "ISO3166_2":"C"
+            },
+            "countryName":"Egypt",
+            "fcodeName":"capital of a political entity",
+            "adminName1":"Cairo",
+            "lat":"30.06263",
+            "fcode":"PPLC"
+        }
+    ]
+}
