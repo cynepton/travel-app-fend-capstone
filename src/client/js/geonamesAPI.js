@@ -76,20 +76,6 @@ function geoNamesAPI() {
         }
     }
 
-    // This commented out block is not used to this code it is a guide from a previously written code
-    /*async function fetchGeoNamesData() {
-        const req = await fetch ('http://localhost:3000//allgeonames');
-        try{
-            const allGeoNameData = await req.json();
-            // document.getElementById('date').innerHTML = allData.date;
-            // document.getElementById('temp').innerHTML = 'Temperature: ' + allData.temperature;
-            // document.getElementById('content').innerHTML = allData.userResponse;
-            console.log(allGeoNameData);
-        }catch(error){
-            console.log('error', error);
-        }
-    }*/
-    
     /**
      * This adds an event listener to the generate button on the website, to start calling the APIs
      */
