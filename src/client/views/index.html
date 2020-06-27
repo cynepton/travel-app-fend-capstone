@@ -1,67 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" dir="ltr">
     <head>
-        <meta charset="utf-8" />
-        <title>Travel App</title>
-        <meta name="description" content="Example" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <!-- Google fonts -->
-        <!-- Roboto 12 styles -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-        <!-- Open sans 10 styles -->
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" rel="stylesheet">
-
-        <!-- Linked CSS files -->
-        <link href="../styles/css/main.css" rel="stylesheet">
-        <link href="../styles/css/trip-card.css" rel="stylesheet">
-
+        <meta charset="utf-8">
+        <title>Test</title>
     </head>
+
     <body>
-        <div class = "main-container">
-            <header>
-                <h1>TRAVEL APP</h1>
-            </header>
 
-            <aside>
-                <div class="inputs">
-                    <label for="destination-city">Add New Destination: </label>
-                    <input type="text" name="destination-city" id="destination-city" size="20" maxlength="20" required>
+        <header>
+            <div class="">
+                Travel Guide App
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+              <div id="trip-form-box">
+                <div class="trip-text-box">
+                  <h1>Travel App</h1>
+                  <p>Let's plan your next trip for you. Just fill the information required below.</p>
                 </div>
-                <div class="inputs">
-                    <label for="travel-date">Enter Travel Date: </label>
-                    <input type="date" name="travel-date" id="travel-date" required>
+        
+                <form onsubmit="return Client.SubmitForm(event)" autocomplete="off">
+                  <label for="entry"></label>
+                  <input id="entry" type="text" placeholder="Enter city" required>
+                  <label for="startDate">Start date:</label>
+                  <input id="startDate" type="date" required>
+                  <label for="endDate">End date:</label>
+                  <input id="endDate" type="date" required>
+                  <input type="submit" >
+                               </form>
+              </div>
+              <div id="new-trip">
+                <div>
+                  <p class="description">This is your trip info.</p>
                 </div>
-                <input id="generate-button" class="button-style" type="button" value="Generate">
-            </aside>
+                <div id="new-trip-box"></div>
+              </div>
+              <div id="trips">
+                <h1>Your trip</h1>
+                <div id="trips__container">
+                  <p id="no-trips__message">No active trip.</p>
+        
+                </div>
+              </div>
+        
+            </div>
+        
+          </main>
 
-            <main>
-                <h2>My Trips:</h2>
-                <section class="trip-card">
-                    <!-- <div class="trip-title">
-                        <p><h3>My First Trip</h3></p>
-                    </div> -->
-                    <div class="trip-image">
+        <footer>
+            <p>This is a footer</p>
+        </footer>
+        <script>// Check that service workers are supported
+        if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+        }
+        </script>
 
-                    </div>
-                    <div class="trip-info">
-                        <h3 class="user-destination">Destination</h3>
-                        <p class="user-travel-date">Travel Date: 2020-12-08</p>
-                        <p class="user-weather-information">Weather Information:</p>
-                        <p class="user-temperature">High: 30, Low: 24</p>
-                        <p class="user-comment">Thisis small talk</p>
-                        <div class="trip-actions">
-                            <button>Save Trip</button>
-                            <button>Remove Trip</button>
-                        </div>
-
-                    </div>
-                </section>
-            </main>
-
-            <footer>
-
-            </footer>
-        </div>
     </body>
 </html>
