@@ -7,7 +7,7 @@ function geoNamesAPI() {
     //Variables for the api URL
     const geonamesUrl = 'http://api.geonames.org/searchJSON?q=';
     const geonamesUrl2 = '&maxRows=1&username=';
-    const geoNameUsername = process.env.GEONAMES_USERNAME;
+    const geoNameUsername = 'cynepton';
 
     // Global variables for HTML Elements
     const destinationCity = document.getElementById('destination-city');
@@ -24,6 +24,8 @@ function geoNamesAPI() {
         try{
             // store response in variable data
             let data = await res.json();
+            console.log(`Geonames API link works, data has been received`);
+            console.log(dat)
             return data;
         } catch(error){
             // send errors to JS console
@@ -45,12 +47,15 @@ function geoNamesAPI() {
      */
     function newGeoNamesData(e){
         let destinationCityV = `${destinationCity.value}`
-        let userDestination = destinationCityV.toLowerCase;
+        let userDestination = destinationCityV.toLowerCase();
 
         getGeoNameData(`${geonamesUrl}${userDestination}${geonamesUrl2}${geoNameUsername}`).then(
             function (data){
-            postData('http://localhost:3000/addgeonames', {lat:data.geonames[0].lat, lng:data.geonames[0].lng, country:data.geonames[0].countryName})
-            })    
+            postData('http://localhost:3000/addgeonames', {lat:data.geonames[0].lat, lng:data.geonames[0].lng, country:data.geonames[0].countryName}).then(function () {
+                Client.weatherBitApi();
+                console.log(`Geoname sucessfully called the weatherBit function`);
+            })
+        })
     }
 
     /**
@@ -70,6 +75,7 @@ function geoNamesAPI() {
         });
         try{
             let newPostData = await res.json();
+            console.log(`Geonames POST request works. Data has been posted to Geonames array at the server`)
             return newPostData;
         }catch (error){
             console.log("error", error);
