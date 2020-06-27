@@ -1,8 +1,10 @@
 const dotenv = require('dotenv')
 dotenv.config();
 
-// Setup empty JS object to act as endpoint for all routes
+// Setup empty JS object to act as endpoint for all geoNames data
 geoNamesDataArray = [];
+// Setup empty JS object to act as endpoint for all weatherBit data
+weatherBitDataArray = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -32,12 +34,15 @@ function listening(){
     console.log(`running on localhost: ${port}`);
 };
 
-// GET Route
-app.get('/allgeonames', sendData);
+// HTTP Routes for GeoNames API
 
-function sendData (req, res) {
-    res.send(JSON.stringify(geoNamesDataArray));
+//GET Route
+app.get('/allgeonames', sendGeoData);
+
+function sendGeoData (req, res) {
+    res.send(geoNamesDataArray);
     console.log(geoNamesDataArray);
+    alert('GeoNames logged');
 };
 
 // POST Route
@@ -46,4 +51,27 @@ function geoNamesPost(req, res) {
     geoNamesDataArray[geoNamesDataArray.length].lat = req.body.lat;
     geoNamesDataArray[geoNamesDataArray.length].lon = req.body.lng;
     geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
+    alert('GeoNames posted');
+}
+
+// HTTP Routes for WeatherBit API
+
+//GET Route
+app.get('/allweatherdata', sendWeatherData);
+
+function sendWeatherData (req, res) {
+    res.send(geoNamesDataArray);
+    console.log(geoNamesDataArray);
+    console.log('GeoNames logged');
+};
+
+// POST Route
+app.post('/addweatherdata', weatherBitPost);
+
+function weatherBitPost(req, res) {
+    geoNamesDataArray[geoNamesDataArray.length].city = req.body.city;
+    geoNamesDataArray[geoNamesDataArray.length].maxTemp = req.body.maxTemp;
+    geoNamesDataArray[geoNamesDataArray.length].minTemp = req.body.minTemp;
+    geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
+    console.log('weather data posted');
 }
