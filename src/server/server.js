@@ -42,7 +42,7 @@ app.get('/allgeonames', sendGeoData);
 function sendGeoData (req, res) {
     res.send(geoNamesDataArray);
     console.log(geoNamesDataArray);
-    alert('GeoNames logged');
+    console.log('GeoNames logged');
 };
 
 // POST Route
@@ -51,7 +51,7 @@ function geoNamesPost(req, res) {
     geoNamesDataArray[geoNamesDataArray.length].lat = req.body.lat;
     geoNamesDataArray[geoNamesDataArray.length].lon = req.body.lng;
     geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
-    alert('GeoNames posted');
+    console.log('GeoNames posted');
 }
 
 // HTTP Routes for WeatherBit API
