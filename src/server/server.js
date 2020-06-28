@@ -81,7 +81,7 @@ function weatherBitPost(req, res) {
     let weatherData = {city:req.body.city, maxTemp:req.body.maxTemp, minTemp:req.body.minTemp, country:req.body.country, days:req.body.days};
     weatherBitDataArray[weatherBitDataArray.length] = weatherData;
     console.log(weatherBitDataArray);
-    // res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server with /addweatherdata`)
+    res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server with /addweatherdata`)
     console.log('----------------weather data posted`----------------');
 }
 
