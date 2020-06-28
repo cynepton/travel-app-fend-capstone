@@ -128,7 +128,9 @@ function weatherBitAPI() {
                 }
 
                 let weatherData = {"city":city, "maxTemp":maxTemp, "minTemp":minTemp, "country":country, "days":diffInDays}
-                postWeatherData('http://localhost:3000/addweatherdata', weatherData);
+                postWeatherData('http://localhost:3000/addweatherdata', weatherData).then(function (data) {
+                    Client.pixabayAPI();
+                });
             } catch(error){
                 // send errors to JS console
                 console.log("Error:", error);
