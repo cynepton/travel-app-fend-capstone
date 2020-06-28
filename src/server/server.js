@@ -54,11 +54,10 @@ function sendGeoData (req, res) {
 app.post('/addgeonames', geoNamesPost);
 function geoNamesPost(req, res) {
     // console.log(req.body);
-    let requestBody = req.body.geonames[0];
+    let requestBodyJSON = req.body.geonames[0];
+    let requestBody = {lat:requestBodyJSON.lat, lon:requestBodyJSON.lng, country:requestBodyJSON.countryName};
     console.log(requestBody);
-    geoNamesDataArray[geoNamesDataArray.length].latitude = requestBody.lat;
-    geoNamesDataArray[geoNamesDataArray.length].longitude = requestBody.lng;
-    geoNamesDataArray[geoNamesDataArray.length].country = requestBody.countryName;
+    geoNamesDataArray[geoNamesDataArray.length] = requestBody;
     console.log(geoNamesDataArray);
     console.log('--------GeoNames POSTed-------');
 }
