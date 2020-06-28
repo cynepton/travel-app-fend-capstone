@@ -69,8 +69,8 @@ function geoNamesPost(req, res) {
 app.get('/allweatherdata', sendWeatherData);
 
 function sendWeatherData (req, res) {
-    res.send(weatherBitDataArray);
-    console.log(weatherBitDataArray);
+    res.send(travelDataArray);
+    console.log(travelDataArray);
     console.log('--------------Weather data sent to pixabay API-----------------');
 };
 
@@ -78,7 +78,7 @@ function sendWeatherData (req, res) {
 app.post('/addweatherdata', weatherBitPost);
 
 function weatherBitPost(req, res) {
-    let weatherData = {city:req.body.city, maxTemp:req.body.maxTemp, minTemp:req.body.minTemp, country:req.body.country, days:req.body.days};
+    let weatherData = {city:req.body.city, maxTemp:req.body.maxTemp, minTemp:req.body.minTemp, country:req.body.country, days:req.body.days, imageURL:'empty'};
     travelDataArray[travelDataArray.length] = weatherData;
     console.log(travelDataArray);
     res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server at /addweatherdata`)
@@ -92,7 +92,8 @@ app.post('/addimagelink', addPixabayLink);
 
 function addPixabayLink(req, res) {
     let imageLink = req.body;
-    travelDataArray[travelDataArray.length - 1].image = imageLink;
+    let imageURL = imageLink.imageURL;
+    travelDataArray[travelDataArray.length - 1].imageURL = imageURL;
     console.log(travelDataArray);
     res.send(`Image Data has been added to the travel information on the server`)
     console.log('----------------Image Link added to Server ----------------');
