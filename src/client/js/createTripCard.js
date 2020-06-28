@@ -1,5 +1,6 @@
 function createTripCard() {
 
+    console.log(`creating trip card ...`)
     const mainTag = document.querySelector('main');
     const eldest = document.querySelector('#header-fix');
     
@@ -32,26 +33,30 @@ function createTripCard() {
         makeSection.setAttribute('class', 'trip-card');
         makeSection.setAttribute('id', `trip-card${arrayLength}`);
         mainTag.appendChild(makeSection);
+        
 
-        let tripCard = `
-            <div class="trip-image">
-                <img src="${imageURL}" alt="An Image of the Location" class="trip-location-image">
+        makeSection.innerHTML = `<div class="trip-image"><img src="${imageURL}" alt="An Image of the Location" class="trip-location-image"></div><div class="trip-info"><h3 class="user-destination">Destination: ${city},${country}</h3><p class="user-travel-date">Days Left until Departure: ${daysLeft} Days</p><p class="user-weather-information">Weather Information:</p><p class="user-temperature">High: ${maxTemp} degree celsius, Low: ${minTemp} degree celsius</p><div class="trip-actions"><button>Save Trip</button><button>Remove Trip</button></div></div>`;
+
+        /*
+        `
+        <div class="trip-image">
+            <img src="${imageURL}" alt="An Image of the Location" class="trip-location-image">
+        </div>
+        <div class="trip-info">
+            <h3 class="user-destination">Destination: ${city},${country}</h3>
+            <p class="user-travel-date">Days Left until Departure: ${daysLeft} Days</p>
+            <p class="user-weather-information">Weather Information:</p>
+            <p class="user-temperature">High: ${maxTemp} degree celsius, Low: ${minTemp} degree celsius</p>
+            <div class="trip-actions">
+                <button>Save Trip</button>
+                <button>Remove Trip</button>
             </div>
-            <div class="trip-info">
-                <h3 class="user-destination">Destination: ${city},${country}</h3>
-                <p class="user-travel-date">Days Left until Departure: ${daysLeft} Days</p>
-                <p class="user-weather-information">Weather Information:</p>
-                <p class="user-temperature">High: ${maxTemp} degree celsius, Low: ${minTemp} degree celsius</p>
-                <div class="trip-actions">
-                    <button>Save Trip</button>
-                    <button>Remove Trip</button>
-                </div>
 
-            </div>`;
-        makeSection.innerHTML(tripCard);
+        </div>`
+        */
 
     }
-    fetchAllTravelData;
+    fetchAllTravelData();
 }
 
 export { createTripCard};
