@@ -82,7 +82,7 @@ function weatherBitPost(req, res) {
     weatherBitDataArray[weatherBitDataArray.length] = weatherData;
     console.log(weatherBitDataArray);
     res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server with /addweatherdata`)
-    console.log('----------------weather data posted`----------------');
+    console.log('----------------weather data posted----------------');
 }
 
 module.exports = server
