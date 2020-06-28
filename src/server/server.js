@@ -54,12 +54,12 @@ function sendGeoData (req, res) {
 app.post('/addgeonames', geoNamesPost);
 function geoNamesPost(req, res) {
     // console.log(req.body);
-    let requestBody = req.body.geonames[0];
+    let requestBodyJSON = req.body.geonames[0];
+    let requestBody = {lat:requestBodyJSON.lat, lon:requestBodyJSON.lng, country:requestBodyJSON.countryName};
     console.log(requestBody);
-    geoNamesDataArray[geoNamesDataArray.length].latitude = requestBody.lat;
-    geoNamesDataArray[geoNamesDataArray.length].longitude = requestBody.lng;
-    geoNamesDataArray[geoNamesDataArray.length].country = requestBody.countryName;
+    geoNamesDataArray[geoNamesDataArray.length] = requestBody;
     console.log(geoNamesDataArray);
+    res.send(`Geonames coordinates data successfully received by server at /addgeonames: ${requestBody}`);
     console.log('--------GeoNames POSTed-------');
 }
 
@@ -71,18 +71,18 @@ app.get('/allweatherdata', sendWeatherData);
 function sendWeatherData (req, res) {
     res.send(weatherBitDataArray);
     console.log(weatherBitDataArray);
-    console.log('GeoNames logged');
+    console.log('--------------GeoNames logged-----------------');
 };
 
 // POST Route
 app.post('/addweatherdata', weatherBitPost);
 
 function weatherBitPost(req, res) {
-    weatherBitDataArray[weatherBitDataArray.length].city = req.body.city;
-    weatherBitDataArray[weatherBitDataArray.length].maxTemp = req.body.maxTemp;
-    weatherBitDataArray[weatherBitDataArray.length].minTemp = req.body.minTemp;
-    weatherBitDataArray[weatherBitDataArray.length].country = req.body.country;
-    console.log('weather data posted');
+    let weatherData = {city:req.body.city, maxTemp:req.body.maxTemp, minTemp:req.body.minTemp, country:req.body.country, days:req.body.days};
+    weatherBitDataArray[weatherBitDataArray.length] = weatherData;
+    console.log(weatherBitDataArray);
+    res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server with /addweatherdata`)
+    console.log('----------------weather data posted----------------');
 }
 
 module.exports = server

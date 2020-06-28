@@ -2,8 +2,6 @@
  * Main function that cntains operations on GeoNamesAPI
 */
 
-import { weatherBitAPI } from "./weatherBitAPI";
-
 function geoNamesAPI() {
     
     //Variables for the api URL
@@ -33,7 +31,9 @@ function geoNamesAPI() {
             let count = data.geonames[0].countryName
             let geoData = {"lat":lati, "lng":long, "country":count}*/
 
+            console.log(`attempting to post geonames coordinates data to server at /addgeonames...`)
             postData('http://localhost:3000/addgeonames', data)
+            return data;
         } catch(error){
             // send errors to JS console
             console.log("Error:", error);
@@ -56,8 +56,8 @@ function geoNamesAPI() {
         let destinationCityV = `${destinationCity.value}`
         let userDestination = destinationCityV.toLowerCase();
 
-        getGeoNameData(`${geonamesUrl}${userDestination}${geonamesUrl2}${geoNameUsername}`).then(function () {
-            weatherBitAPI
+        getGeoNameData(`${geonamesUrl}${userDestination}${geonamesUrl2}${geoNameUsername}`).then(function (data) {
+            Client.weatherBitAPI();
         })
     }
 
@@ -77,10 +77,10 @@ function geoNamesAPI() {
             body: JSON.stringify(data),
         });
         try{
-            let newPostData = await res.json();
+            let newPostData = await res.text();
             console.log(newPostData);
             // console.log(`Geonames POST request works. Data has been posted to Geonames array at the server`);
-            return newPostData;
+            // return newPostData;
         }catch (error){
             console.log("error", error);
         }

@@ -34,7 +34,8 @@ function weatherBitAPI() {
             let lat = lastEntry.lat;
             let lon = lastEntry.lon;
             let country = lastEntry.country;
-            console.log([lat, lon]);
+            console.log('Latitude, Longitude: ' + [lat, lon]);
+            console.log(`Sucessfully recieved longitue and Latitude values from server`)
             return {lat, lon, country};
         } catch(error){
             console.log('error', error);
@@ -57,8 +58,9 @@ function weatherBitAPI() {
             body: JSON.stringify(data),
         });
         try{
-            let newPostData = await res.json();
-            return newPostData;
+            let serverResponse = await res.text();
+            console.log(serverResponse);
+            // return serverResponse;
         }catch (error){
             console.log("error", error);
         }
@@ -97,6 +99,7 @@ function weatherBitAPI() {
         let endYear = endDateString.getFullYear();
 
         let endDate = `${endYear}-${endMonth}-${endDay}`;
+        console.log(startDate, endDate);
 
         /**
          * Async function to get coordinates data from WeatherBit.
@@ -109,8 +112,9 @@ function weatherBitAPI() {
             const res = await fetch(url);
             try{
                 // store response in variable data
-                weather = await res.json();
-                console.log(weather);
+                let weather = await res.json();
+                console.log('weather from weather bit: ' + weather);
+                console.log(`weather information received from WeatherBit API`)
                 let city = weather.city_name;
                 let country = countryName
                 let maxTemp;
@@ -123,7 +127,7 @@ function weatherBitAPI() {
                     minTemp = weather.data[0].min_temp;
                 }
 
-                let weatherData = {"city":city, "maxTemp":maxTemp, "minTemp":minTemp, "country":country}
+                let weatherData = {"city":city, "maxTemp":maxTemp, "minTemp":minTemp, "country":country, "days":diffInDays}
                 postWeatherData('http://localhost:3000/addweatherdata', weatherData);
             } catch(error){
                 // send errors to JS console
@@ -134,7 +138,7 @@ function weatherBitAPI() {
         if (diffInDays < 17) {
             fetchGeoNamesData().then(function(coordinates) {
                 getWeatherBitData(`${weatherBitURLFore}lat=${coordinates.lat}&lon=${coordinates.lon}${weatherBitAPI_KEY}`, coordinates.country)
-            })       
+            })
         } else {
             fetchGeoNamesData().then(function(coordinates) {
                 getWeatherBitData(`${weatherBitURLHist}lat=${coordinates.lat}&lon=${coordinates.lon}&start_date=${startDate}&end_date=${endDate}${weatherBitAPI_KEY}`, coordinates.country)
