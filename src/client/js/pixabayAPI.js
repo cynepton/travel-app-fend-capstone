@@ -36,7 +36,7 @@ function pixabayAPI() {
             console.log(imageURL);
             let imageURLJSON = {imageURL}
             postImage('http://localhost:3000/addimagelink', imageURLJSON).then(function () {
-                client.createTripCard();
+                Client.createTripCard();
             })
             return imageURL;
         } catch(error){
