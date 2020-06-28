@@ -99,5 +99,13 @@ function addPixabayLink(req, res) {
     console.log('----------------Image Link added to Server ----------------');
 }
 
+// HTTP Routes for UI Updates
+app.get('/alltraveldata', sendTravelData);
+
+function sendTravelData (req, res) {
+    res.send(travelDataArray);
+    console.log(travelDataArray);
+    console.log('--------------Weather data sent to Trip card maker-----------------');
+};
 
 module.exports = server

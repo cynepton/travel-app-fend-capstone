@@ -1,14 +1,6 @@
-#Udacity Trravel App 
-This project is a travel app that outputs the duration of the trip and weather forecast of the destination.
-The project was built using Webpack, Express, Service workers... e.t.c
-## What we will cover
+# Travel App: Udacity Frontend Developer Nanodegree Capstone Project
+    This project is a travel app that, obtains a desired trip location & date from the user, and displays weather information and an image of the location using information obtained from external APIs. This is the final project for my Udacity Front-end Developer Nanodegree
 
+## Dependencies
 
-This project displays the prediction card after filling the details and hitting submit. It shows the predicted information under the "Your Trips" section
-
-
-## Get Up and Running
-Run the following command to get it started
- npm install
- npm start
- npm run build-dev
+[Package file](package.json)

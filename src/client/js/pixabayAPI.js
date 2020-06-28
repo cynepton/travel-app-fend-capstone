@@ -35,7 +35,9 @@ function pixabayAPI() {
             console.log(`attempting to post image data to server at /addimagelink...`)
             console.log(imageURL);
             let imageURLJSON = {imageURL}
-            postImage('http://localhost:3000/addimagelink', imageURLJSON);
+            postImage('http://localhost:3000/addimagelink', imageURLJSON).then(function () {
+                Client.createTripCard();
+            })
             return imageURL;
         } catch(error){
             // send errors to JS console
@@ -72,7 +74,7 @@ function pixabayAPI() {
         });
         try{
             let serverMessage = await res.text();
-            console.log(serverMessage);
+            console.log(serverMessage)
         }catch (error){
             console.log("error", error);
         }

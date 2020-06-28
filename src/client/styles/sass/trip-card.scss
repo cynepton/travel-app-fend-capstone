@@ -17,7 +17,9 @@ $trip-card-border: 4px solid $brand-color-2;
 
 .trip-image {
     width: 1fr;
-    min-height: 10vh;
+    min-height: 5vh;
+    border-radius: 2vw 2vw 0 0 ;
+    // border: 3px solid green;
 }
 
 .trip-info {
@@ -32,6 +34,11 @@ $trip-card-border: 4px solid $brand-color-2;
     justify-content: space-around;
 }
 
+img.trip-location-image {
+    object-fit: contain;
+    width: 92vw;
+}
+
 @media (min-width:901px) {
     .trip-image {
         width: 50%;
@@ -40,5 +47,8 @@ $trip-card-border: 4px solid $brand-color-2;
         width: 50%;
         border-top: none;
         border-left: $trip-card-border;
+    }
+    img.trip-location-image {
+        width: 46vw;
     }
 }

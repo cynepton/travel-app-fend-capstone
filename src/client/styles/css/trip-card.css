@@ -1,6 +1,7 @@
 .trip-image {
   width: 1fr;
-  min-height: 10vh;
+  min-height: 5vh;
+  border-radius: 2vw 2vw 0 0;
 }
 
 .trip-info {
@@ -15,6 +16,11 @@
   justify-content: space-around;
 }
 
+img.trip-location-image {
+  object-fit: contain;
+  width: 92vw;
+}
+
 @media (min-width: 901px) {
   .trip-image {
     width: 50%;
@@ -24,6 +30,10 @@
     width: 50%;
     border-top: none;
     border-left: 4px solid orange;
+  }
+
+  img.trip-location-image {
+    width: 46vw;
   }
 }
 
