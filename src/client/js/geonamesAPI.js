@@ -2,6 +2,8 @@
  * Main function that cntains operations on GeoNamesAPI
 */
 
+import { weatherBitAPI } from "./weatherBitAPI";
+
 function geoNamesAPI() {
     
     //Variables for the api URL
@@ -25,8 +27,13 @@ function geoNamesAPI() {
             // store response in variable data
             let data = await res.json();
             console.log(`Geonames API link works, data has been received`);
-            console.log(dat)
-            return data;
+            console.log(data);
+           /*let lati = data.geonames[0].lat;
+            let long = data.geonames[0].lng
+            let count = data.geonames[0].countryName
+            let geoData = {"lat":lati, "lng":long, "country":count}*/
+
+            postData('http://localhost:3000/addgeonames', data)
         } catch(error){
             // send errors to JS console
             console.log("Error:", error);
@@ -49,12 +56,8 @@ function geoNamesAPI() {
         let destinationCityV = `${destinationCity.value}`
         let userDestination = destinationCityV.toLowerCase();
 
-        getGeoNameData(`${geonamesUrl}${userDestination}${geonamesUrl2}${geoNameUsername}`).then(
-            function (data){
-            postData('http://localhost:3000/addgeonames', {lat:data.geonames[0].lat, lng:data.geonames[0].lng, country:data.geonames[0].countryName}).then(function () {
-                Client.weatherBitApi();
-                console.log(`Geoname sucessfully called the weatherBit function`);
-            })
+        getGeoNameData(`${geonamesUrl}${userDestination}${geonamesUrl2}${geoNameUsername}`).then(function () {
+            weatherBitAPI
         })
     }
 
@@ -63,7 +66,7 @@ function geoNamesAPI() {
      * @param {string} url - URL http://localhost:3000/addgeonames that sends the data body as an HTTP POST request to the serverside `server.js` file
      * @param {json} data - JSON data containing {latitude value,longitute value,country} from newGeoNamesData function
     */
-    async function postData(url = '', data = {}) {
+    async function postData(url = '', data) {
         const res = await fetch(url, {
             method: 'POST',
             credentials: 'same-origin',
@@ -75,7 +78,8 @@ function geoNamesAPI() {
         });
         try{
             let newPostData = await res.json();
-            console.log(`Geonames POST request works. Data has been posted to Geonames array at the server`)
+            console.log(newPostData);
+            // console.log(`Geonames POST request works. Data has been posted to Geonames array at the server`);
             return newPostData;
         }catch (error){
             console.log("error", error);

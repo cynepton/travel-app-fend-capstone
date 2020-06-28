@@ -1,10 +1,10 @@
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 dotenv.config();
 
 // Setup empty JS object to act as endpoint for all geoNames data
-geoNamesDataArray = [];
+let geoNamesDataArray = [];
 // Setup empty JS object to act as endpoint for all weatherBit data
-weatherBitDataArray = [];
+let weatherBitDataArray = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -29,9 +29,14 @@ app.use(express.static('dist'));
 const port = 3000;
 const server = app.listen(port, listening);
 
+console.log(__dirname);
+
 function listening(){
-    console.log(server);
+    // console.log(server);
     console.log(`running on localhost: ${port}`);
+    console.log(`---------------------------------------------------`);
+    console.log(`***************************************************`);
+    console.log(`---------------------------------------------------`)
 };
 
 // HTTP Routes for GeoNames API
@@ -42,16 +47,20 @@ app.get('/allgeonames', sendGeoData);
 function sendGeoData (req, res) {
     res.send(geoNamesDataArray);
     console.log(geoNamesDataArray);
-    console.log('GeoNames logged');
+    console.log('------GeoNames GET request sucessful-------');
 };
 
 // POST Route
 app.post('/addgeonames', geoNamesPost);
 function geoNamesPost(req, res) {
-    geoNamesDataArray[geoNamesDataArray.length].lat = req.body.lat;
-    geoNamesDataArray[geoNamesDataArray.length].lon = req.body.lng;
-    geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
-    console.log('GeoNames posted');
+    // console.log(req.body);
+    let requestBody = req.body.geonames[0];
+    console.log(requestBody);
+    geoNamesDataArray[geoNamesDataArray.length].latitude = requestBody.lat;
+    geoNamesDataArray[geoNamesDataArray.length].longitude = requestBody.lng;
+    geoNamesDataArray[geoNamesDataArray.length].country = requestBody.countryName;
+    console.log(geoNamesDataArray);
+    console.log('--------GeoNames POSTed-------');
 }
 
 // HTTP Routes for WeatherBit API
@@ -60,8 +69,8 @@ function geoNamesPost(req, res) {
 app.get('/allweatherdata', sendWeatherData);
 
 function sendWeatherData (req, res) {
-    res.send(geoNamesDataArray);
-    console.log(geoNamesDataArray);
+    res.send(weatherBitDataArray);
+    console.log(weatherBitDataArray);
     console.log('GeoNames logged');
 };
 
@@ -69,9 +78,11 @@ function sendWeatherData (req, res) {
 app.post('/addweatherdata', weatherBitPost);
 
 function weatherBitPost(req, res) {
-    geoNamesDataArray[geoNamesDataArray.length].city = req.body.city;
-    geoNamesDataArray[geoNamesDataArray.length].maxTemp = req.body.maxTemp;
-    geoNamesDataArray[geoNamesDataArray.length].minTemp = req.body.minTemp;
-    geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
+    weatherBitDataArray[weatherBitDataArray.length].city = req.body.city;
+    weatherBitDataArray[weatherBitDataArray.length].maxTemp = req.body.maxTemp;
+    weatherBitDataArray[weatherBitDataArray.length].minTemp = req.body.minTemp;
+    weatherBitDataArray[weatherBitDataArray.length].country = req.body.country;
     console.log('weather data posted');
 }
+
+module.exports = server

@@ -1,5 +1,5 @@
 function weatherBitAPI() {
-    
+    console.log(`Geoname sucessfully called the weatherBit function`);
     const weatherBitURLFore ='https://api.weatherbit.io/v2.0/forecast/daily?';
     const weatherBitURLHist = 'https://api.weatherbit.io/v2.0/history/daily?';
     const weatherBitAPI_KEY = `&key=9d252e08a94748fe8fb6a4471704085c`;
@@ -123,8 +123,8 @@ function weatherBitAPI() {
                     minTemp = weather.data[0].min_temp;
                 }
 
-                let weatherData = {city, maxTemp, minTemp, country}
-                postWeatherData('http://localhost:3000/addweatherdata', {city:weatherData.city, maxTemp:weatherData.maxTemp, minTemp:weatherData.minTemp, country:weatherData.country});
+                let weatherData = {"city":city, "maxTemp":maxTemp, "minTemp":minTemp, "country":country}
+                postWeatherData('http://localhost:3000/addweatherdata', weatherData);
             } catch(error){
                 // send errors to JS console
                 console.log("Error:", error);
@@ -142,9 +142,6 @@ function weatherBitAPI() {
         }
     }
 
-    /**
-     * This adds an event listener to the generate button on the website, to start calling the APIs
-     */
     newWeatherBitData();
 }
 
