@@ -59,6 +59,7 @@ function geoNamesPost(req, res) {
     console.log(requestBody);
     geoNamesDataArray[geoNamesDataArray.length] = requestBody;
     console.log(geoNamesDataArray);
+    res.send(`Geonames coordinates data successfully received: ${requestBody}`);
     console.log('--------GeoNames POSTed-------');
 }
 
