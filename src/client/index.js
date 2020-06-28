@@ -1,7 +1,14 @@
-import { SubmitForm, onPageLoad } from './js/app';
+// Imported JavaScript functions
+import {geoNamesAPI} from './js/geoNamesAPI';
+import { weatherBitAPI } from "./js/weatherBitAPI";
 
-import "./styles/base.scss";
+// Imported SASS styles
+import './styles/sass/main.scss';
+import './styles/sass/trip-card.scss';
 
-alert("Welcome!");
-onPageLoad();
-export { SubmitForm, onPageLoad};
+window.addEventListener('DOMContentLoaded', geoNamesAPI);
+
+export {
+    geoNamesAPI,
+    weatherBitAPI
+}

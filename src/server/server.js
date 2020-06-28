@@ -1,8 +1,10 @@
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 dotenv.config();
 
-// Setup empty JS object to act as endpoint for all routes
-geoNamesDataArray = [];
+// Setup empty JS object to act as endpoint for all geoNames data
+let geoNamesDataArray = [];
+// Setup empty JS object to act as endpoint for all weatherBit data
+let weatherBitDataArray = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -27,23 +29,60 @@ app.use(express.static('dist'));
 const port = 3000;
 const server = app.listen(port, listening);
 
+console.log(__dirname);
+
 function listening(){
-    console.log(server);
+    // console.log(server);
     console.log(`running on localhost: ${port}`);
+    console.log(`---------------------------------------------------`);
+    console.log(`***************************************************`);
+    console.log(`---------------------------------------------------`)
 };
 
-// GET Route
-app.get('/allgeonames', sendData);
+// HTTP Routes for GeoNames API
 
-function sendData (req, res) {
-    res.send(JSON.stringify(geoNamesDataArray));
+//GET Route
+app.get('/allgeonames', sendGeoData);
+
+function sendGeoData (req, res) {
+    res.send(geoNamesDataArray);
     console.log(geoNamesDataArray);
+    console.log('------GeoNames GET request sucessful-------');
 };
 
 // POST Route
 app.post('/addgeonames', geoNamesPost);
 function geoNamesPost(req, res) {
-    geoNamesDataArray[geoNamesDataArray.length].lat = req.body.lat;
-    geoNamesDataArray[geoNamesDataArray.length].lon = req.body.lng;
-    geoNamesDataArray[geoNamesDataArray.length].country = req.body.country;
+    // console.log(req.body);
+    let requestBody = req.body.geonames[0];
+    console.log(requestBody);
+    geoNamesDataArray[geoNamesDataArray.length].latitude = requestBody.lat;
+    geoNamesDataArray[geoNamesDataArray.length].longitude = requestBody.lng;
+    geoNamesDataArray[geoNamesDataArray.length].country = requestBody.countryName;
+    console.log(geoNamesDataArray);
+    console.log('--------GeoNames POSTed-------');
 }
+
+// HTTP Routes for WeatherBit API
+
+//GET Route
+app.get('/allweatherdata', sendWeatherData);
+
+function sendWeatherData (req, res) {
+    res.send(weatherBitDataArray);
+    console.log(weatherBitDataArray);
+    console.log('GeoNames logged');
+};
+
+// POST Route
+app.post('/addweatherdata', weatherBitPost);
+
+function weatherBitPost(req, res) {
+    weatherBitDataArray[weatherBitDataArray.length].city = req.body.city;
+    weatherBitDataArray[weatherBitDataArray.length].maxTemp = req.body.maxTemp;
+    weatherBitDataArray[weatherBitDataArray.length].minTemp = req.body.minTemp;
+    weatherBitDataArray[weatherBitDataArray.length].country = req.body.country;
+    console.log('weather data posted');
+}
+
+module.exports = server
