@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../sass/trip-card.scss"],"names":[],"mappings":"AAiBA;EACI;EACA;;;AAGJ;EACI;EACA;EAEA,YAlBe;;;AAoBnB;EACI;EACA;EACA;;;AAGJ;EACI;IACI;;;EAEJ;IACI;IACA;IACA,aAjCW","file":"trip-card.css"}
+{"version":3,"sourceRoot":"","sources":["../sass/trip-card.scss"],"names":[],"mappings":"AAiBA;EACI;EACA;EACA;;;AAIJ;EACI;EACA;EAEA,YApBe;;;AAsBnB;EACI;EACA;EACA;;;AAGJ;EACI;EACA;;;AAGJ;EACI;IACI;;;EAEJ;IACI;IACA;IACA,aAxCW;;;EA0Cf;IACI","file":"trip-card.css"}
