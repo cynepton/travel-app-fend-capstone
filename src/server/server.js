@@ -4,7 +4,7 @@ dotenv.config();
 // Setup empty JS object to act as endpoint for all geoNames data
 let geoNamesDataArray = [];
 // Setup empty JS object to act as endpoint for all weatherBit data
-let weatherBitDataArray = [];
+let travelDataArray = [];
 
 // Require Express to run server and routes
 const express = require('express');
@@ -71,7 +71,7 @@ app.get('/allweatherdata', sendWeatherData);
 function sendWeatherData (req, res) {
     res.send(weatherBitDataArray);
     console.log(weatherBitDataArray);
-    console.log('--------------GeoNames logged-----------------');
+    console.log('--------------Weather data sent to pixabay API-----------------');
 };
 
 // POST Route
@@ -79,10 +79,24 @@ app.post('/addweatherdata', weatherBitPost);
 
 function weatherBitPost(req, res) {
     let weatherData = {city:req.body.city, maxTemp:req.body.maxTemp, minTemp:req.body.minTemp, country:req.body.country, days:req.body.days};
-    weatherBitDataArray[weatherBitDataArray.length] = weatherData;
-    console.log(weatherBitDataArray);
-    res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server with /addweatherdata`)
+    travelDataArray[travelDataArray.length] = weatherData;
+    console.log(travelDataArray);
+    res.send(`Weather Data containing:city, max temperature, min Temperature, country, days until travel date has been received by the server at /addweatherdata`)
     console.log('----------------weather data posted----------------');
 }
+
+// HTTP Routes for Pixabay API
+
+// POST Route
+app.post('/addimagelink', addPixabayLink);
+
+function addPixabayLink(req, res) {
+    let imageLink = req.body;
+    travelDataArray[travelDataArray.length - 1].image = imageLink;
+    console.log(travelDataArray);
+    res.send(`Image Data has been added to the travel information on the server`)
+    console.log('----------------Image Link added to Server ----------------');
+}
+
 
 module.exports = server
