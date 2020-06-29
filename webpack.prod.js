@@ -25,7 +25,19 @@ module.exports = {
             },
             {
                 test:/\.scss$/,
-                use: [MiniCSSExtractPlugin.loader , 'css-loader', 'sass-loader']
+                use: [MiniCSSExtractPlugin.loader , 'css-loader', 'sass-loader',
+                {
+                    //https://www.npmjs.com/package/sass-resources-loader
+                    loader: 'sass-resources-loader',
+                    options: {
+                      // Provide path to the file with resources
+                      resources: './src/client/styles/sass/partials/_variables.scss',
+           
+                      // Or array of paths
+                      //resources: ['./path/to/vars.scss', './path/to/mixins.scss']
+                    },
+                  },
+                ]
             }
         ]
     },
