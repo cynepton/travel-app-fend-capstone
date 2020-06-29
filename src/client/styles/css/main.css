@@ -1,142 +1,17 @@
-body {
-  font: 100% "Open Sans", sans-serif;
-  color: black;
+/* Error: Undefined variable.
+ *   ,
+ * 4 |     font: 100% $generic-font;
+ *   |                ^^^^^^^^^^^^^
+ *   '
+ *   src\client\styles\sass\main.scss 4:16  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a   \2577 \a 4 \2502      font: 100% $generic-font;\d\a   \2502                 ^^^^^^^^^^^^^\a   \2575 \a   src\\client\\styles\\sass\\main.scss 4:16  root stylesheet";
 }
-
-h1 {
-  font-family: "Roboto", sans-serif;
-  font-size: 7vh;
-}
-
-h2 {
-  font: italic 900 2vh "Roboto", sans-serif;
-  color: #535050;
-  text-decoration: underline;
-}
-
-section.trip-card {
-  display: flex;
-  flex-direction: column;
-  border: 4px solid orange;
-  width: 92vw;
-  border-radius: 2vw;
-}
-
-.main-container {
-  display: grid;
-  grid-template-areas: "head" "neck" "main" "foot";
-  grid-template-rows: 8vh 24vh 1fr 20vh;
-  gap: 1vh;
-}
-
-header {
-  grid-area: head;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  background-color: #0c1624;
-  text-align: center;
-  color: white;
-}
-
-aside {
-  grid-area: neck;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-right: 2vw;
-  background-color: #c7c7df;
-}
-
-main {
-  grid-area: main;
-  display: flex;
-  flex-direction: column;
-  min-height: 10vh;
-  align-items: center;
-}
-
-footer {
-  grid-area: foot;
-  background-color: #c7c7df;
-}
-
-#destination-city, #travel-date {
-  font-size: 1em;
-}
-
-div.inputs {
-  display: flex;
-  flex-direction: column;
-  padding: 1vh;
-  align-items: center;
-}
-
-.button-style {
-  padding: 0 20px;
-  text-align: center;
-  color: #fff;
-  text-shadow: 1px 1px 1px #000;
-  border-radius: 10px;
-  background-color: #0fa13b;
-  box-shadow: inset 2px 2px 3px rgba(255, 255, 255, 0.6), inset -2px -2px 3px rgba(0, 0, 0, 0.6);
-  width: 30vw;
-  height: 5vh;
-  font-size: 2.5vh;
-}
-
-.button-style:hover {
-  background-color: #0fa13b;
-}
-
-.button-style:active {
-  box-shadow: inset -2px -2px 3px rgba(255, 255, 255, 0.6), inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-}
-
-@media (min-width: 600px) and (max-width: 900) {
-  .main-container {
-    grid-template-rows: 8vh 16vh 1fr 20vh;
-  }
-
-  section.trip-card {
-    flex-direction: row;
-  }
-
-  aside {
-    flex-direction: row;
-  }
-
-  #destination-city, #travel-date {
-    font-size: 1.8em;
-  }
-
-  .button-style {
-    background-color: #0e742d;
-  }
-}
-@media (min-width: 901px) {
-  .main-container {
-    grid-template-rows: 8vh 14vh 1fr 20vh;
-  }
-
-  section.trip-card {
-    flex-direction: row;
-  }
-
-  aside {
-    flex-direction: row;
-    padding-bottom: 2vh;
-  }
-
-  #destination-city, #travel-date {
-    font-size: 1.6em;
-  }
-
-  .button-style {
-    background-color: #0e742d;
-    width: 12vw;
-    align-self: flex-end;
-  }
-}
-
-/*# sourceMappingURL=main.css.map */

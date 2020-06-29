@@ -1,12 +1,4 @@
-$special-font: 'Roboto', sans-serif;
-$generic-font: 'Open Sans', sans-serif;
-$primary-font-color: black;
-$wireframe-color: rgb(199, 199, 223);
-$wireframe-border: 2px solid white;
-$font-color-1: white;
-$brand-color-1: rgb(12, 22, 36);
-$brand-color-2: orange;
-$trip-card-border: 4px solid $brand-color-2;
+//@use './partials/variables';
 
 body {
     font: 100% $generic-font;

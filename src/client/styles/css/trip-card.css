@@ -1,40 +1,17 @@
-.trip-image {
-  width: 1fr;
-  min-height: 5vh;
-  border-radius: 2vw 2vw 0 0;
+/* Error: Undefined variable.
+ *    ,
+ * 21 |     border-top: $trip-card-border;
+ *    |                 ^^^^^^^^^^^^^^^^^
+ *    '
+ *   src\client\styles\sass\trip-card.scss 21:17  root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined variable.\a    \2577 \a 21 \2502      border-top: $trip-card-border;\d\a    \2502                  ^^^^^^^^^^^^^^^^^\a    \2575 \a   src\\client\\styles\\sass\\trip-card.scss 21:17  root stylesheet";
 }
-
-.trip-info {
-  width: 1fr;
-  padding: 2vh;
-  border-top: 4px solid orange;
-}
-
-.trip-actions {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-img.trip-location-image {
-  object-fit: contain;
-  width: 92vw;
-}
-
-@media (min-width: 901px) {
-  .trip-image {
-    width: 50%;
-  }
-
-  .trip-info {
-    width: 50%;
-    border-top: none;
-    border-left: 4px solid orange;
-  }
-
-  img.trip-location-image {
-    width: 46vw;
-  }
-}
-
-/*# sourceMappingURL=trip-card.css.map */
