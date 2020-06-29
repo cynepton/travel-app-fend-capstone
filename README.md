@@ -1,6 +1,77 @@
 # Travel App: Udacity Frontend Developer Nanodegree Capstone Project
     This project is a travel app that, obtains a desired trip location & date from the user, and displays weather information and an image of the location using information obtained from external APIs. This is the final project for my Udacity Front-end Developer Nanodegree
 
+## Directory Tree
+
+```
+C:.
+|   .babelrc
+|   .gitattributes
+|   .gitignore
+|   LICENSE
+|   output.txt
+|   package-lock.json
+|   package.json
+|   README.md
+|   webpack.dev.js
+|   webpack.prod.js
+|   
++---dist
+|       index.html
+|       main.css
+|       main.js
+|       main.js.map
+|       service-worker.js
+|       service-worker.js.map
+|       workbox-1bbb3e0e.js
+|       workbox-1bbb3e0e.js.map
+|   
+|                   
+\---src
+    +---client
+    |   |   index.js
+    |   |   
+    |   +---js
+    |   |       createTripCard.js
+    |   |       geonamesAPI.js
+    |   |       pixabayAPI.js
+    |   |       weatherBitAPI.js
+    |   |       
+    |   +---media
+    |   |       travel-default.jpg
+    |   |       
+    |   +---sample-json-api-res
+    |   |   |   geonameData.json
+    |   |   |   pixabay.json
+    |   |   |   weatherBit.json
+    |   |   |   weatherBitHist.json
+    |   |   |   
+    |   |   \---dev-only
+    |   |           bugtest.json
+    |   |           bugtest.txt
+    |   |           
+    |   +---styles
+    |   |   +---css
+    |   |   |   |   main.css
+    |   |   |   |   main.css.map
+    |   |   |   |   trip-card.css
+    |   |   |   |   trip-card.css.map
+    |   |   |   |   
+    |   |   |   \---partials
+    |   |   \---sass
+    |   |       |   main.scss
+    |   |       |   trip-card.scss
+    |   |       |   
+    |   |       \---partials
+    |   |               _variables.scss
+    |   |               
+    |   \---views
+    |           index.html
+    |           
+    \---server
+            server.js
+```
+
 ## Dependencies
 
 Dependency|Version
