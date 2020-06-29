@@ -1,6 +1,10 @@
 # Travel App: Udacity Frontend Developer Nanodegree Capstone Project
     This project is a travel app that, obtains a desired trip location & date from the user, and displays weather information and an image of the location using information obtained from external APIs. This is the final project for my Udacity Front-end Developer Nanodegree. The project provides an opportunity for me to us the skills I leanrt during the degree.
 
+## Sass Resources Loader
+This branch is currently a test for the sass-resources-loader, while it actually works, it ignores the `@use` used to import the partial files into the `.scss` files. Commenting out the `@use` before building, works just fine.
+More research is being done till the bugs are completely fixed. 
+
 ## Project Overview
 The application [takes in a destination city and a departure date from the user](src\client\views\index.html), and the [passes the city along with an API request](src\client\js\geonamesAPI.js) to [Geonames](http://www.geonames.org/export/web-services.html). 
 The [data recieved](src\client\sample-json-api-res\geonameData.json) contains information about the city, but as at now this application only reads the longitude, latitude and country. 
@@ -154,6 +158,7 @@ html-loader|1.1.0
 mini-css-extract-plugin|0.9.0
 optimize-css-assets-webpack-plugin|5.0.3
 sass|1.26.9
+sass-resources-loader|2.0.3
 terser-webpack-plugin|3.0.6
 webpack|4.43.0
 webpack-cli|3.3.12
